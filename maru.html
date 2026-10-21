@@ -16,6 +16,7 @@ a{color:#1E2430}a:hover{color:#C81E1E}
 .grid-paper{background-color:#F7F8FA;background-image:linear-gradient(#E6E9EF 1px,transparent 1px),linear-gradient(90deg,#E6E9EF 1px,transparent 1px);background-size:28px 28px}
 .btn{transition:transform .15s ease}
 .btn:hover{transform:translate(-2px,-2px)}
+@media (max-width: 640px){:not(h1):not(h2):not(h3)>br{display:none}[style*="pre-line"]{white-space:normal!important}h2{font-size:26px!important}.logo-sub{display:none}.greet{font-size:24px!important}ol br{display:inline!important}}
 </style>
 <style>[id]{scroll-margin-top:84px}img{max-width:100%}</style>
 <script src="dc-lite.js"></script>
@@ -28,7 +29,7 @@ a{color:#1E2430}a:hover{color:#C81E1E}
 <div style="max-width: 1200px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
 <a href="index.html" style="text-decoration: none; display: flex; align-items: baseline; gap: 10px; padding: 6px 0">
 <span style="font-family: 'Nanum Pen Script', cursive; font-size: 34px; line-height: 1">Soyoun</span>
-<span style="font-size: 14px; color: #5A6270">게임 기획자 엄소윤</span>
+<span class="logo-sub" style="font-size: 14px; color: #5A6270">게임 기획자 엄소윤</span>
 </a>
 <nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; font-size: 15px">
 <a href="index.html#projects" style="text-decoration: none; padding: 12px 12px; color: #C81E1E">프로젝트</a>
@@ -43,12 +44,12 @@ a{color:#1E2430}a:hover{color:#C81E1E}
 <div style="max-width: 1200px; margin: 0 auto; padding: 40px 24px 56px; display: flex; flex-direction: column; gap: 22px">
 <nav aria-label="현재 위치" style="font-size: 14px; color: #5A6270; display: flex; flex-wrap: wrap; gap: 8px"><a href="index.html" style="color: #5A6270">홈</a><span aria-hidden="true">/</span><a href="index.html#projects" style="color: #5A6270">프로젝트</a><span aria-hidden="true">/</span><span>마루는 강쥐</span></nav>
 <h1 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 700; font-size: clamp(40px, 5.5vw, 68px); line-height: 1.2">마루는 강쥐</h1>
-<p style="margin: 0; font-size: 19px; color: #3B4250; max-width: 760px">네이버웹툰 IP 카페 경영 게임입니다.<br>개발부터 런칭, 라이브까지 시스템과 콘텐츠를 함께 맡아<br>20개 이상의 콘텐츠와 시스템을 설계했습니다.</p>
+<p style="margin: 0; font-size: 19px; color: #3B4250; max-width: 760px">네이버웹툰 IP 카페 경영 게임입니다. <br>개발부터 런칭, 라이브까지 시스템과 콘텐츠를 함께 맡아 <br>20개 이상의 콘텐츠와 시스템을 설계했습니다.</p>
 <dl style="margin: 8px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; border-top: 1px solid #1E2430; padding-top: 18px">
 <div><dt style="font-size: 13px; color: #5A6270">소속</dt><dd style="margin: 0">㈜넥스쳐 기획팀</dd></div>
 <div><dt style="font-size: 13px; color: #5A6270">기간</dt><dd style="margin: 0">2025.02~ 라이브 중</dd></div>
 <div><dt style="font-size: 13px; color: #5A6270">역할</dt><dd style="margin: 0">시스템 + 콘텐츠 기획</dd></div>
-<div><dt style="font-size: 13px; color: #5A6270">사용 도구</dt><dd style="margin: 0">BigQuery · MCP · GPTs</dd></div>
+<div><dt style="font-size: 13px; color: #5A6270">사용 도구</dt><dd style="margin: 0">BigQuery · SQL · MCP</dd></div>
 </dl>
 </div>
 </section>
@@ -68,18 +69,18 @@ a{color:#1E2430}a:hover{color:#C81E1E}
 <span style="font-family: 'Nanum Pen Script', cursive; font-size: 26px; color: #E2574C">1 · 콘텐츠</span>
 <h2 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 700; font-size: 32px; line-height: 1.4">배경에 서 있던 마루를, 같이 놀고 싶은 캐릭터로</h2>
 <img src="assets/maru_dialog.png?v=8526e9ed" alt="마루와의 대화 선택지 화면" style="width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid #E3E6EB">
-<p style="margin: 0; font-size: 17px">초기 기획안의 마루는 배경에서 돌아다니며 애니메이션만 보여 주는 캐릭터였습니다.<br>대화·미니게임·스킬이 하나의 경험치로 모이는 상호작용을 제안해,<br>마루와 놀수록 경영이 유리해지는 구조를 만들었습니다.</p>
-<p style="margin: 0; font-size: 17px">다이얼로그 UI 구조와 대사를 직접 썼고,<br>대사는 원작 말투 검증기로 한 번 더 확인했습니다.</p>
+<p style="margin: 0; font-size: 17px">초기 기획안의 마루는 배경에서 돌아다니며 애니메이션만 보여 주는 캐릭터였습니다. <br>대화·미니게임·스킬이 하나의 경험치로 모이는 상호작용을 제안해, <br>마루와 놀수록 경영이 유리해지는 구조를 만들었습니다.</p>
+<p style="margin: 0; font-size: 17px">다이얼로그 UI 구조와 대사를 직접 썼습니다.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; background: #FFF8E1; border-radius: 10px; padding: 20px 24px">
 <span style="font-family: 'Nanum Pen Script', cursive; font-size: 26px; color: #C81E1E; flex: 0 0 auto">출시 후</span>
-<span style="flex: 1 1 360px">상호작용이 잘 쓰이지 않는다는 것을 SQL로 확인했습니다.<br>구조를 바꾸기 전에 미션 이벤트로 사용법을 먼저 겪게 했고,<br>이벤트 종료 1주 뒤에도 이용률이 이전보다 높게 유지됐습니다.</span>
+<span style="flex: 1 1 360px">상호작용이 잘 쓰이지 않는다는 것을 SQL로 확인했습니다. <br>구조를 바꾸기 전에 미션 이벤트로 사용법을 먼저 겪게 했고, <br>이벤트 종료 1주 뒤에도 이용률이 이전보다 높게 유지됐습니다.</span>
 </div>
 </section>
 
 <section id="c2" style="display: flex; flex-direction: column; gap: 20px">
 <span style="font-family: 'Nanum Pen Script', cursive; font-size: 26px; color: #2F63D6">2 · 시스템</span>
 <h2 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 700; font-size: 32px; line-height: 1.4">두 번째 카페를 열면, 무엇을 같이 쓰고 무엇을 나눌까</h2>
-<p style="margin: 0; font-size: 17px">'2호점'은 운영하던 카페 옆에 두 번째 카페를 여는 수직형 콘텐츠입니다.<br>재화·아이템·인테리어 등 모든 항목을 표로 펼친 뒤 세 규칙과 예외로 정리하고,<br>테이블 구조와 상태 흐름으로 남겨 다음 호점은 데이터만 더해 열리게 했습니다.</p>
+<p style="margin: 0; font-size: 17px">'2호점'은 운영하던 카페 옆에 두 번째 카페를 여는 수직형 콘텐츠입니다. <br>재화·아이템·인테리어 등 모든 항목을 표로 펼친 뒤 세 규칙과 예외로 정리하고, <br>테이블 구조와 상태 흐름으로 남겨 다음 호점은 데이터만 더해 열리게 했습니다.</p>
 <div style="overflow-x: auto; border: 1px solid #E3E6EB; border-radius: 10px">
 <table style="width: 100%; min-width: 520px; border-collapse: collapse; font-size: 16px">
 <thead><tr style="background: #F1F5FD; text-align: left"><th style="padding: 14px 18px; width: 90px">구분</th><th style="padding: 14px 18px">대상</th><th style="padding: 14px 18px">처리</th></tr></thead>
@@ -103,9 +104,8 @@ a{color:#1E2430}a:hover{color:#C81E1E}
 <span style="font-family: 'Nanum Pen Script', cursive; font-size: 26px; color: #2E8B57">3 · AI</span>
 <h2 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 700; font-size: 32px; line-height: 1.4">매주 하는 확인은 도구로 만들었습니다</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
-<div style="border: 1px solid #E3E6EB; border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><strong style="font-family: 'Gowun Batang', serif; font-size: 19px">밸런스 리포트 생성기</strong><span style="font-size: 15px; color: #3B4250">게임 테이블을 MCP로 LLM에 연결했습니다.<br>자연어로 물으면 관련 값을 찾아 대조하고<br>밸런스 리포트로 정리합니다.</span></div>
-<div style="border: 1px solid #E3E6EB; border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><strong style="font-family: 'Gowun Batang', serif; font-size: 19px">주별 유저 리포트</strong><span style="font-size: 15px; color: #3B4250">재화 유통량·기능별 이용률·판매 상위를<br>BigQuery SQL로 매주 같은 기준으로 뽑고,<br>지난주 대비 변화는 LLM이 요약합니다.</span></div>
-<div style="border: 1px solid #E3E6EB; border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><strong style="font-family: 'Gowun Batang', serif; font-size: 19px">원작 말투 검증기</strong><span style="font-size: 15px; color: #3B4250">GPTs로 만든 검증기입니다.<br>존댓말·감정 표현 강도·문장 길이·<br>언어 사용 나이 네 기준으로 대사를 판정합니다.</span></div>
+<div style="border: 1px solid #E3E6EB; border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><strong style="font-family: 'Gowun Batang', serif; font-size: 19px">밸런스 리포트 생성기</strong><span style="font-size: 15px; color: #3B4250">게임 테이블을 MCP로 LLM에 연결했습니다. <br>자연어로 물으면 관련 값을 찾아 대조하고 <br>밸런스 리포트로 정리합니다.</span></div>
+<div style="border: 1px solid #E3E6EB; border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><strong style="font-family: 'Gowun Batang', serif; font-size: 19px">주별 유저 리포트</strong><span style="font-size: 15px; color: #3B4250">재화 유통량·기능별 이용률·판매 상위를 <br>BigQuery SQL로 매주 같은 기준으로 뽑고, <br>지난주 대비 변화는 LLM이 요약합니다.</span></div>
 </div>
 </section>
 
@@ -114,9 +114,9 @@ a{color:#1E2430}a:hover{color:#C81E1E}
 <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
 <img src="assets/maru_stylingshop.png?v=a5ac3cab" alt="마루의 스타일링샵 이벤트 화면" style="flex: 1 1 260px; min-width: 0; max-width: 380px; height: auto; display: block; border-radius: 10px; border: 1px solid #E3E6EB">
 <ul style="flex: 1 1 300px; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 16px">
-<li><strong>스타일링샵</strong><br>기존 IP 자산을 재활용해 신규 제작 대비 리소스 투입 20% 절감,<br>상시 이벤트 대비 유료 재화 사용량 5% 이상 증가</li>
-<li><strong>튜토리얼 개선</strong><br>유저 행동 패턴을 보고 튜토리얼을 고쳐 개선 구간 DAU 3% 상승</li>
-<li><strong>코스튬 로테이션</strong><br>테마·캐릭터·일반으로 나눈 코스튬 상품 로테이션 BM 설계</li>
+<li><strong>스타일링샵</strong> <br>기존 IP 자산을 재활용해 신규 제작 대비 리소스 투입 20% 절감, <br>상시 이벤트 대비 유료 재화 사용량 5% 이상 증가</li>
+<li><strong>튜토리얼 개선</strong> <br>유저 행동 패턴을 보고 튜토리얼을 고쳐 개선 구간 DAU 3% 상승</li>
+<li><strong>코스튬 로테이션</strong> <br>테마·캐릭터·일반으로 나눈 코스튬 상품 로테이션 BM 설계</li>
 </ul>
 </div>
 </section>
