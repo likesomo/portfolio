@@ -1544,7 +1544,7 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
     const work = c.slots[0] ? c.slots[0].work : def.work === 'ORDER' ? (f.order && f.order.work) : def.work.split('|')[0];
     const tile = `<div class="g-tile" style="width:96px;min-height:104px;pointer-events:none"${A(1)}>${IC.fac[c.fid] ? `<img src="${IC.fac[c.fid]}" alt="">` : ''}<span>${esc(c.ko)}</span></div>`;
     const info = craft ? `<div style="min-width:0"><span class="cap">제작 주문</span><div style="font-size:13px;font-weight:700">${f.order ? esc(f.order.item || KO[f.order.work]) : '없음'}</div>
-        <div class="cap">${f.order ? (c.perH != null ? `시간당 ${c.perH.toLocaleString()}개` : '') : '주문을 걸면 팰이 와서 만들어요'}</div>
+        <div class="cap">${f.order ? (c.perH != null ? `시간당 ${c.perH.toLocaleString()}개` : '') : '주문을 걸면 자리가 생겨요'}</div>
         <div style="margin-top:4px">${f.order ? btn('주문 끝내기', 'order', f.uid, 'sm') : btn('주문 걸기', 'order', f.uid, 'y sm')}${btn('철거', 'demolish', c.fuid, 'ghost sm', !S.can('Demolish'))}</div></div>`
       : `<div style="min-width:0"><span class="cap">${def.kind === 'RAW' ? '자원 시설' : def.kind === 'POWER' ? '전기 공급' : def.kind === 'RANCH' ? '목장' : def.kind === 'FARM' ? '농장' : def.kind === 'BREED' ? '교배' : '시설'}</span>
         <div style="font-size:13px;font-weight:700">${c.perH != null ? `시간당 ${c.perH.toLocaleString()}개` : c.powered && v.power === 'PAUSED' ? '전기 멈춤' : ''}</div>${def.req_lv > 1 ? `<div class="cap">Lv${def.req_lv} 이상 팰만 일해요</div>` : ''}${['feed', 'haul'].includes(c.fuid) ? '' : `<div style="margin-top:4px">${btn('철거', 'demolish', c.fuid, 'ghost sm', !S.can('Demolish'))}</div>`}</div>`;
@@ -1707,7 +1707,7 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
       <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:8px">${btn('중반 거점 15칸', 'scn', 'mid', U.scn === 'mid' ? 'y sm' : 'sm')}${btn('시작 거점 3칸', 'scn', 'early', U.scn === 'early' ? 'y sm' : 'sm')}
         ${btn(v.night ? '아침 되기' : '밤 되기', 'night', '', 'sm')}${btn('1시간 지나기', 'hour', '', 'sm')}${btn(v.away ? '거점 안으로' : '거점 밖으로', 'away', '', 'sm')}${btn('시설 짓기', 'build', '', 'sm')}
         ${btn(v.owner ? '협동 방문자로 보기' : '거점 주인으로 보기', 'who', '', 'sm')}${btn('재생 확인', 'replay', '', 'sm')}${btn('기록 복사', 'copylog', '', 'sm')}</div>
-      <div class="cap" style="margin-top:8px">팰 상태(잠 · 휴식 · 병 · 제작 · 밤은 시스템 변화 — 미리보기를 깨지 않아요)</div><div class="list" style="max-height:130px;margin-top:2px">${rows}</div>
+      <div class="cap" style="margin-top:8px">팰 상태 바꾸기(시스템 변화)</div><div class="list" style="max-height:130px;margin-top:2px">${rows}</div>
       <div class="cap" style="margin-top:8px">이벤트 기록 · 명령 ${S.log.length}개 · 시계 ${(S.t / 1000).toFixed(0)}s · 코어 ${window.AssignCore.VERSION} · 세션 ${AS.VERSION}</div><div class="devlog list" style="max-height:100px">${log || '아직 없어요'}</div></div>`;
   }
 
@@ -1797,7 +1797,7 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
       // 1시간: 팰 상자 팰 SAN 회복(BOX_SAN_PER_H [가정]) — 서버가 보내는 SAN 변화를 시스템 명령으로 흉내
       case 'hour': { S.tick(3600000); const up = ACFG.BOX_SAN_PER_H || 0, box = (S.st.box || []).filter(p => p.where === 'BOX' && p.san != null && p.san < 100);
         for (const p of box) S.send({ type: 'SetSan', uid: p.uid, san: p.san + up }); U.sheet = null; toast(box.length ? `1시간 지났어요 · 팰 상자 팰 ${box.length}마리 SAN +${up}` : '1시간 지났어요'); break; }
-      case 'who': S.by = S.by === 'me' ? 'guest' : 'me'; toast(S.by === 'me' ? '거점 주인으로 봐요' : '협동 방문자로 봐요 · 시설 짓기 · 주문 · 자기 팰 넣기만 돼요'); break;
+      case 'who': S.by = S.by === 'me' ? 'guest' : 'me'; toast(S.by === 'me' ? '거점 주인 시점' : '협동 방문자 시점'); break;
       case 'replay': toast(S.replayMatches() ? `명령 ${S.log.length}개를 처음부터 다시 재생 → 같은 상태예요` : '재생 결과가 달라요 · 기록을 복사해 알려 주세요', !S.replayMatches()); break;
       case 'copylog': { const txt = JSON.stringify({ core: window.AssignCore.VERSION, scn: U.scn, log: S.log });
         try { navigator.clipboard.writeText(txt).then(() => { toast('명령 기록을 복사했어요'); render(); }, () => { toast('복사가 막혀 있어요 · 콘솔의 __proto.S().log를 쓰세요', true); render(); }); } catch (e) { toast('복사가 막혀 있어요', true); } break; }
